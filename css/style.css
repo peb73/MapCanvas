@@ -1,0 +1,56 @@
+.menu {
+	line-height: 18px;
+	background: #000000;
+	color: #FFFFFF;
+	padding: 3px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+.content {
+	margin: 20px auto;
+	display: block;
+	width: 800px;
+}
+
+#mycanvas {
+	cursor: default;
+	border: 1px solid #000000;
+	width: 800px;
+	/*position: absolute;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+	*/
+}
+
+#mycanvas.map-nw{
+	cursor: nw-resize;
+}
+#mycanvas.map-n {
+	cursor: n-resize;
+}
+#mycanvas.map-ne {
+	cursor: ne-resize;
+}
+#mycanvas.map-w {
+	cursor: w-resize;
+}
+
+#mycanvas.map-e {
+	cursor: e-resize;
+}
+
+#mycanvas.map-sw {
+	cursor: sw-resize;
+}
+
+#mycanvas.map-s {
+	cursor: s-resize;
+}
+
+#mycanvas.map-se {
+	cursor: se-resize;
+}
+
