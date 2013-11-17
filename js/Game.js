@@ -50,28 +50,40 @@ Game.prototype.process = function(){
 
 		//south
 		if(this.pointer.y>this.canvas.height()*0.8 && this.currentY>this.canvas.height()-this.map.img.naturalHeight){
-			this.currentY = this.currentY - 5;
+
+			var pourcent = (this.pointer.y-this.canvas.height()*0.8)/(this.canvas.height()*0.2);
+			this.currentY = this.currentY - pourcent*25;
+
 			if(this.currentY<this.canvas.height()-this.map.img.naturalHeight) this.currentY = this.canvas.height()-this.map.img.naturalHeight;
 			direction+='s';
 		}
 
 		//north
 		if(this.pointer.y<this.canvas.height()*0.2 && this.currentY<0){
-			this.currentY = this.currentY + 5;
+
+			var pourcent = (this.canvas.height()*0.2 - this.pointer.y)/(this.canvas.height()*0.2);
+			this.currentY = this.currentY + pourcent*25;
+
 			if(this.currentY>0) this.currentY = 0;
 			direction+='n';
 		}
 
 		//east
 		if(this.pointer.x>this.canvas.width()*0.8 && this.currentX>this.canvas.width()-this.map.img.naturalWidth){
-			this.currentX = this.currentX - 5;
+
+			var pourcent = (this.pointer.x-this.canvas.width()*0.8)/(this.canvas.width()*0.2);
+			this.currentX = this.currentX - pourcent*25;
+			
 			if(this.currentX<this.canvas.width()-this.map.img.naturalWidth) this.currentX = this.canvas.width()-this.map.img.naturalWidth;
 			direction+='e';
 		}
 
 		//west
 		if(this.pointer.x<this.canvas.width()*0.2 && this.currentX<0){
-			this.currentX = this.currentX + 5;
+			
+			var pourcent = (this.canvas.width()*0.2 - this.pointer.x)/(this.canvas.width()*0.2);
+			this.currentX = this.currentX + pourcent*25;
+
 			if(this.currentX>0) this.currentX = 0;
 			direction+='w';
 		}
