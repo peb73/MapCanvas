@@ -15,6 +15,9 @@ function Game(canvasId){
 	this.currentX = 0;
 	this.currentY = 0;
 
+	this.isOnSelect = false;
+	this.clickPosition = {x:0,y:0};
+
 	this.class='';
 };
 
@@ -37,6 +40,16 @@ Game.prototype.addMouseEvent = function(){
 
 	that.canvas.on('mousemove',function(e){
 		that.pointer = {x: e.offsetX, y: e.offsetY};
+	});
+
+	that.canvas.on('mouseup', function(e){
+		that.isOnSelect = false;
+	});
+
+	that.canvas.on('mousedown', function(e){
+		that.isOnSelect = true;
+		that.clickPosition.x = e.offsetX-that.currentX;
+		that.clickPosition.y = e.offsetY-that.currentY;
 	});
 };
 
@@ -92,6 +105,9 @@ Game.prototype.process = function(){
 			this.class += 'map-'+direction+' ';
 	}
 
+	if(this.isOnSelect){
+		this.class += 'onselect ';
+	};
 
 	this.render();
 
@@ -100,4 +116,18 @@ Game.prototype.process = function(){
 
 Game.prototype.render = function(){
 	this.map.render(this.currentX, this.currentY);
+
+	//render click
+	if(this.isOnSelect){
+		this.ctx.beginPath();
+	    this.ctx.rect(
+	    	this.clickPosition.x+this.currentX, 
+	    	this.clickPosition.y+this.currentY, 
+	    	this.pointer.x-this.currentX-this.clickPosition.x, 
+	    	this.pointer.y-this.currentY-this.clickPosition.y);
+	    this.ctx.lineWidth = 1;
+	    this.ctx.strokeStyle = 'green';
+	    this.ctx.stroke();
+	}
+
 };
