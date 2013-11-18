@@ -1,14 +1,26 @@
-.menu {
+header,
+footer {
+	position: fixed;
 	line-height: 18px;
+	left: 0px;
+	right: 0px;
 	background: #000000;
 	color: #FFFFFF;
 	padding: 3px;
-	margin-bottom: 5px;
+}
+
+header {
+	top: 0px;
 	text-align: center;
 }
 
-.content {
-	margin: 20px auto;
+footer {
+	bottom: 0px;
+	text-align: right;
+}
+
+section {
+	margin: 40px auto;
 	display: block;
 	width: 1000px;
 }
@@ -31,24 +43,18 @@
 #mycanvas.map-w {
 	cursor: w-resize;
 }
-
 #mycanvas.map-e {
 	cursor: e-resize;
 }
-
 #mycanvas.map-sw {
 	cursor: sw-resize;
 }
-
 #mycanvas.map-s {
 	cursor: s-resize;
 }
-
 #mycanvas.map-se {
 	cursor: se-resize;
 }
-
 #mycanvas.onselect {
 	cursor: crosshair;
 }
-
